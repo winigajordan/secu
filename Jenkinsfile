@@ -16,11 +16,10 @@ pipeline {
                 '''
             }
         }
-        stage('TestSC') {
-            steps {
-                withSonarQubeEnv('sq1') {
-                    sh 'sonar:sonar'
-                }
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SonarScanner 4.0';
+            withSonarQubeEnv('sq1') { // If you have configured more than one global server connection, you can specify its name
+            sh "${scannerHome}/bin/sonar-scanner"
             }
         }
         stage('Test') {
