@@ -19,7 +19,7 @@ pipeline {
         stage('TestSC') {
             steps {
                 withSonarQubeEnv('sq1') {
-                    sh './gradlew sonarqube'
+                    sh 'sonar-scanner'
                 }
             }
         }
