@@ -19,7 +19,7 @@ pipeline {
         stage('TestSC') {
             steps {
                 withSonarQubeEnv('sq1') {
-                    sh "ls ${scannerHome}"
+                    sh 'sonar:sonar'
                 }
             }
         }
