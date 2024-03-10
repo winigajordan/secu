@@ -16,7 +16,7 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('TestSC') {
             steps {
                 echo "Test SonarQube.."
                 sh '''
