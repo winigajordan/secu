@@ -18,6 +18,18 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo "Test SonarQube.."
+                sh '''
+                sonar-scanner \
+                    -Dsonar.projectKey=secu-project \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.token=sqp_2e362ba9e755fb0207ebbf6fb9de5e9089774c6d
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff.."
